@@ -21,21 +21,23 @@ if has("syntax")
   syntax on
 endif
 
+call pathogen#infect()
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-"set background=dark
+set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
-"if has("autocmd")
-"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"endif
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
-"if has("autocmd")
-"  filetype plugin indent on
-"endif
+if has("autocmd")
+  filetype plugin indent on
+endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -44,11 +46,20 @@ set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set modeline
+set shellcmdflag=-ic
 
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
+
+set sw=2
+set softtabstop=2
+set expandtab
+set ls=2
+set showcmd
+
+let mapleader=" "
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -58,28 +69,38 @@ endif
 
 filetype plugin indent on
 
-:inoremap jk  <ESC>
+inoremap jk  <ESC>
 map <C-l> $
-
 map <C-h> <C-0>
 
 noremap % v%
 
-map  <C-f> :tabn<CR>
-
-map  <C-d> :tabp<CR>
-
-map  <C-n> :tabnew<CR>
+"nmap <CR> :b<space>
+"nmap <space> q:
+nmap <leader>f q:
+nmap <leader>sl <C-w>l
+nmap <leader>sh <C-w>h
+nmap <leader>sj <C-w>j
+nmap <leader>sk <C-w>k
+nmap <leader>v <C-w>v
+nmap <leader>h <C-w>s
+nmap <leader>q <C-w>q
+nmap <leader><leader> <leader>lj
+nmap <CR> <CR>
+"map  <C-f> :tabn<CR>
+"map  <C-d> :tabp<CR>
+"map  <C-n> :tabnew<CR>
 
 ":set scrolloff=1000
 
+" CTRL+b opens the buffer list
+map <C-b> <esc>:buffers<cr>
 
 nmap <C-j> 15j
 nmap <C-k> 15k
-nmap <space> zz
 nmap n nzz
 nmap N Nzz
-nmap <Enter> o<ESC>kO<ESC>j
+
 colors slate
 
 "autocmd BufNewFile,BufRead *.hs ~/.vim/ftplugin/haskell.hs
