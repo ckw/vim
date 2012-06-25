@@ -10,6 +10,9 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
+"redundant?
+set nocompatible
+
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
 " options, so any other options should be set AFTER setting 'compatible'.
@@ -45,10 +48,42 @@ endif
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
-set modeline
+"security
+set modelines=0
 set shellcmdflag=-ic
 
-"set incsearch		" Incremental search
+set scrolloff=3
+set hidden
+set showmode
+set autoindent
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set laststatus=2
+set history=1000
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+"set colorcolumn=85
+
+"set relativenumber
+"set undofile
+
+nnoremap / /\v
+vnoremap / /\v
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+noremap <F4> :set hlsearch! <CR>
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+
+
+
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
@@ -72,8 +107,10 @@ filetype plugin indent on
 inoremap jk  <ESC>
 map <C-l> $
 map <C-h> <C-0>
-
 noremap % v%
+noremap <tab> v%
+"(foobarbaz)
+vnoremap <tab> %
 
 "nmap <CR> :b<space>
 "nmap <space> q:
@@ -91,13 +128,17 @@ nmap <CR> <CR>
 "map  <C-d> :tabp<CR>
 "map  <C-n> :tabnew<CR>
 
+
 ":set scrolloff=1000
 
 " CTRL+b opens the buffer list
 map <C-b> <esc>:buffers<cr>
 
-nmap <C-j> 15j
-nmap <C-k> 15k
+nmap <C-j> 15gj
+nmap <C-k> 15gk
+nmap j gj
+nmap k gk
+
 nmap n nzz
 nmap N Nzz
 
