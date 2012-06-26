@@ -57,7 +57,7 @@ set hidden
 set showmode
 set autoindent
 set wildmenu
-set wildmode=list:longest
+"set wildmode=list:longest
 set visualbell
 set cursorline
 set ttyfast
