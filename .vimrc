@@ -44,7 +44,7 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set cmdheight 4
+set cmdheight=4
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -53,7 +53,7 @@ set smartcase		" Do smart case matching
 set modelines=0
 set shellcmdflag=-ic
 
-set scrolloff=3
+set scrolloff=5
 set hidden
 set showmode
 set autoindent
@@ -83,6 +83,8 @@ set hlsearch
 noremap <F4> :set hlsearch! <CR>
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 
+set undolevels=2000
+set ttyfast
 
 
 "set autowrite		" Automatically save before commands like :next and :make
