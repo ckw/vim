@@ -24,7 +24,14 @@ if has("syntax")
   syntax on
 endif
 
+colors slate
+set term=screen-256color
+set encoding=utf-8
 call pathogen#infect()
+set fillchars+=stl:\ ,stlnc:\
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_colorscheme ='default'
+"let g:Powerline_theme ='default'
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -144,7 +151,6 @@ nmap k gk
 nmap n nzz
 nmap N Nzz
 
-colors slate
 
 "autocmd BufNewFile,BufRead *.hs ~/.vim/ftplugin/haskell.hs
-
+"autocmd bufwritepost .vimrc call Pl#Load()
