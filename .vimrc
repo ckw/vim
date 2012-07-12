@@ -25,7 +25,7 @@ if has("syntax")
 endif
 
 colors slate
-set term=screen-256color
+"set term=screen-256color
 set encoding=utf-8
 call pathogen#infect()
 set fillchars+=stl:\ ,stlnc:\
@@ -124,6 +124,7 @@ vnoremap <tab> %
 "nmap <CR> :b<space>
 "nmap <space> q:
 nmap <leader>f q:
+nmap <leader>e @
 nmap <leader>sl <C-w>l
 nmap <leader>sh <C-w>h
 nmap <leader>sj <C-w>j
@@ -133,6 +134,8 @@ nmap <leader>h <C-w>s
 nmap <leader>q <C-w>q
 nmap <leader><leader> <leader>lj
 nmap <CR> <CR>
+nmap , "
+nnoremap <leader>; ,
 "map  <C-f> :tabn<CR>
 "map  <C-d> :tabp<CR>
 "map  <C-n> :tabnew<CR>
