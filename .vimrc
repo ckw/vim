@@ -133,7 +133,7 @@ nmap <leader>v <C-w>v
 nmap <leader>h <C-w>s
 nmap <leader>q <C-w>q
 nmap <leader><leader> <leader>lj
-nmap <CR> <CR>
+nmap <CR> @:
 nmap , "
 nnoremap <leader>; ,
 "map  <C-f> :tabn<CR>
