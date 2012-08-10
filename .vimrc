@@ -154,6 +154,8 @@ nmap k gk
 nmap n nzz
 nmap N Nzz
 
+autocmd CmdwinEnter * :nmap <CR> <CR>
+autocmd CmdwinLeave * :nmap <CR> @:
 
 "autocmd BufNewFile,BufRead *.hs ~/.vim/ftplugin/haskell.hs
 "autocmd bufwritepost .vimrc call Pl#Load()
