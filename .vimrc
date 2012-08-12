@@ -24,12 +24,48 @@ if has("syntax")
   syntax on
 endif
 
-colors slate
-"set term=screen-256color
 set encoding=utf-8
+
+function! ShowColourSchemeName()
+  try
+    return g:colors_name
+  catch /^Vim:E121/
+    return "default"
+  endtry
+endfunction
+
+"{{{Theme Rotating
+let themeindex = 0
+let c_schemes = ["inkpot",
+      \ "ron",
+      \ "blue",
+      \ "elflord",
+      \ "evening",
+      \ "koehler",
+      \ "murphy",
+      \ "pablo",
+      \ "desert",
+      \ "torte",
+      \ "vibrantink",
+      \ "metacosm",
+      \ "jellybeans",
+      \ "wombat",
+      \ "zenburn",
+      \ ]
+
+
+function! RotateColorTheme()
+    let g:themeindex = (g:themeindex + 1) % len(g:c_schemes)
+    let newtheme = g:c_schemes[g:themeindex]
+    return ":colorscheme ".newtheme
+endfunction
+" }}}
+
 call pathogen#infect()
+
 set fillchars+=stl:\ ,stlnc:\
-let g:Powerline_symbols = 'fancy'
+
+
 "let g:Powerline_colorscheme ='default'
 "let g:Powerline_theme ='default'
 
@@ -37,6 +73,14 @@ let g:Powerline_symbols = 'fancy'
 " turn on this option as well
 set background=dark
 
+try
+  colorscheme inkpot
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme slate
+endtry
+
+"set term=screen-256color
+"
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
@@ -104,6 +148,7 @@ set expandtab
 set ls=2
 
 let mapleader=" "
+let g:clipbrdDefaultReg = '+'
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -118,11 +163,8 @@ map <C-l> $
 map <C-h> <C-0>
 noremap % v%
 noremap <tab> v%
-"(foobarbaz)
 vnoremap <tab> %
 
-"nmap <CR> :b<space>
-"nmap <space> q:
 nmap <leader>f q:
 nmap <leader>e @
 nmap <leader>sl <C-w>l
@@ -136,13 +178,8 @@ nmap <leader><leader> <leader>lj
 nmap <CR> @:
 nmap , "
 nnoremap <leader>; ,
-"map  <C-f> :tabn<CR>
-"map  <C-d> :tabp<CR>
-"map  <C-n> :tabnew<CR>
 
-
-":set scrolloff=1000
-
+nnoremap <silent> <leader>t :execute RotateColorTheme()<CR>
 " CTRL+b opens the buffer list
 map <C-b> <esc>:buffers<cr>
 
@@ -156,6 +193,17 @@ nmap N Nzz
 
 autocmd CmdwinEnter * :nmap <CR> <CR>
 autocmd CmdwinLeave * :nmap <CR> @:
+
+" Remove any trailing whitespace that is in the file
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+let g:Powerline_symbols = 'fancy'
+
+"Pl#Theme#InsertSegment({newsegment}, {location}, {targetsegment})
+call Pl#Theme#InsertSegment('charcode', 'before', 'fileformat')
+call Pl#Theme#InsertSegment('color_scheme', 'before', 'fileformat')
+
+
 
 "autocmd BufNewFile,BufRead *.hs ~/.vim/ftplugin/haskell.hs
 "autocmd bufwritepost .vimrc call Pl#Load()
