@@ -16,6 +16,10 @@ echo "might need to export TERM=xterm-256color in .bashrc"
 git clone https://github.com/tpope/vim-surround.git
 git clone https://github.com/mileszs/ack.vim.git
 
+git clone https://github.com/flazz/vim-colorschemes.git
+ln -s ~/.vim/bundle/colorschemes/colors ~/.vim/colors
+
 git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-mono-powerline-ttf
 fc-cache -vf
+
 
