@@ -34,7 +34,7 @@ function! ShowColourSchemeName()
   endtry
 endfunction
 
-let g:EasyMotion_leader_key = '<Leader>j'
+let g:EasyMotion_leader_key = '<Leader>g'
 let g:EasyMotion_keys = 'asdfjklgheiru;'
 
 "{{{Theme Rotating
@@ -170,14 +170,20 @@ vnoremap <tab> %
 
 nmap <leader>f q:
 nmap <leader>e @
-nmap <leader>sl <C-w>l
-nmap <leader>sh <C-w>h
-nmap <leader>sj <C-w>j
-nmap <leader>sk <C-w>k
+
+nmap <leader>h <C-w>h
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
+nmap <leader>l <C-w>l
 nmap <leader>v <C-w>v
-nmap <leader>h <C-w>s
+nmap <leader>s <C-w>s
 nmap <leader>q <C-w>q
-nmap <leader><leader> <leader>lj
+
+
+"was for lusty-juggler; unnecessary if you change default lj invoker
+"nmap <leader><leader> <leader>lj
+
+
 nmap <CR> @:
 nmap , "
 nnoremap <leader>; ,
