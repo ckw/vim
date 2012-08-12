@@ -34,6 +34,9 @@ function! ShowColourSchemeName()
   endtry
 endfunction
 
+let g:EasyMotion_leader_key = '<Leader>j'
+let g:EasyMotion_keys = 'asdfjklgheiru;'
+
 "{{{Theme Rotating
 let themeindex = 0
 let c_schemes = ["inkpot",
@@ -120,8 +123,8 @@ set history=1000
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-"set colorcolumn=85
 
+"set colorcolumn=85
 "set relativenumber
 "set undofile
 
