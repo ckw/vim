@@ -40,6 +40,7 @@ let g:EasyMotion_keys = 'asdfjklgheiru;'
 "{{{Theme Rotating
 let themeindex = 0
 let c_schemes = ["inkpot",
+      \ "slate",
       \ "ron",
       \ "blue",
       \ "elflord",
@@ -75,6 +76,7 @@ set fillchars+=stl:\ ,stlnc:\
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
+set t_Co=256
 
 try
   colorscheme inkpot
@@ -205,6 +207,7 @@ autocmd CmdwinLeave * :nmap <CR> @:
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+autocmd BufNewFile,BufRead *.json :set ft=json
 
 let g:Powerline_symbols = 'fancy'
 
