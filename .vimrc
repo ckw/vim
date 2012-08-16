@@ -192,8 +192,8 @@ nmap <C-k> 15k
 
 vmap j gj
 vmap k gk
-vmap <c-l> $
-vmap <c-h> <c-0>
+vmap <C-l> $
+vmap <C-h> <c-0>
 vmap <C-j> 15j
 vmap <C-k> 15k
 ":::::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::
