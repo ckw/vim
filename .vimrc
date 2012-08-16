@@ -32,9 +32,15 @@ function! ShowColourSchemeName()
   endtry
 endfunction
 
-let g:EasyMotion_leader_key = '<Leader>g'
+let g:EasyMotion_leader_key = '<Leader>d'
 let g:EasyMotion_keys = 'asdfjklgheiru;'
 
+":::::::::::::::::::::::::Gundo::::::::::::::::::::::::::::::::::::::::::::::::
+let g:gundo_help = 0
+let g:gundo_preview_bottom = 1
+let g:gundo_close_on_revert = 1
+let g:gundo_preview_height = 15
+let g:gundo_width = 45
 ":::::::::::::::::::::::::Theme Rotating:::::::::::::::::::::::::::::::::::::::
 let themeindex = 0
 let c_schemes = ["inkpot",
@@ -135,13 +141,14 @@ set ls=2
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
-"set colorcolumn=85
-"set relativenumber
-"set undofile
+set colorcolumn=85
+set relativenumber
+set undofile
 
 let g:clipbrdDefaultReg = '+'
+let undodir = "/home/ckw/undo_dir_vim"
 
-
+"this is a comment
 ":::::::::::::::::::::::::::::::::::::::mapping:::::::::::::::::::::::::::::::
 let mapleader=" "
 inoremap jk  <ESC>
@@ -155,6 +162,7 @@ noremap <silent> <leader>t :call RotateColorTheme()<CR>
 
 vnoremap <tab> %
 vnoremap / /\v
+nnoremap <leader>g :GundoToggle<CR>
 
 "was for lusty-juggler; unnecessary if you change default lj invoker
 "nmap <leader><leader> <leader>lj
