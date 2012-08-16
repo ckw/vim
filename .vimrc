@@ -32,7 +32,7 @@ function! ShowColourSchemeName()
   endtry
 endfunction
 
-let g:EasyMotion_leader_key = '<Leader>d'
+let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjklgheiru;'
 
 ":::::::::::::::::::::::::Gundo::::::::::::::::::::::::::::::::::::::::::::::::
@@ -163,11 +163,13 @@ noremap <silent> <leader>t :call RotateColorTheme()<CR>
 vnoremap <tab> %
 vnoremap / /\v
 nnoremap <leader>g :GundoToggle<CR>
+noremap , "
+noremap : ;
+noremap ; q:i
 
 "was for lusty-juggler; unnecessary if you change default lj invoker
 "nmap <leader><leader> <leader>lj
 
-nmap <leader>f q:
 nmap <leader>e @
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
@@ -177,7 +179,6 @@ nmap <leader>v <C-w>v
 nmap <leader>s <C-w>s
 nmap <leader>q <C-w>q
 nmap <CR> @:
-nmap , "
 nmap <C-b> <esc>:buffers<cr>
 nmap n nzz
 nmap N Nzz
