@@ -164,7 +164,6 @@ vnoremap <tab> %
 vnoremap / /\v
 nnoremap <leader>g :GundoToggle<CR>
 noremap , "
-noremap : ;
 noremap ; q:i
 
 "was for lusty-juggler; unnecessary if you change default lj invoker
