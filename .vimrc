@@ -32,6 +32,13 @@ function! ShowColourSchemeName()
   endtry
 endfunction
 
+function! FindAllChars()
+  set scrolloff=0
+  call setpos('.',[0,line('w0'),0,0])
+  call EasyMotion#F('f',0)
+  set scrolloff=5
+endfunction
+
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjklgheiru;'
 
@@ -169,6 +176,9 @@ noremap ; q:i
 "was for lusty-juggler; unnecessary if you change default lj invoker
 "nmap <leader><leader> <leader>lj
 
+map <C-l> $
+map <C-h> 0
+
 nmap <leader>e @
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
@@ -184,17 +194,18 @@ nmap N Nzz
 
 nmap j gj
 nmap k gk
-nmap <C-l> $
-nmap <C-h> <C-0>
 nmap <C-j> 15j
 nmap <C-k> 15k
 
+omap <C-j> 15j
+omap <C-k> 15k
+
 vmap j gj
 vmap k gk
-vmap <C-l> $
-vmap <C-h> <c-0>
 vmap <C-j> 15j
 vmap <C-k> 15k
+noremap f <esc>:call FindAllChars()<cr>
+
 ":::::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::
 let g:Powerline_symbols = 'fancy'
 call Pl#Theme#InsertSegment('charcode', 'before', 'fileformat')
