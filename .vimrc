@@ -41,6 +41,181 @@ endfunction
 
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjklgheiru;'
+"
+":::::::::::::::::::::::::Theme Rotating:::::::::::::::::::::::::::::::::::::::
+
+let themeindex = 0
+let c_schemes = ["inkpot",
+      \ "slate",
+      \ "ron",
+      \ "blue",
+      \ "elflord",
+      \ "evening",
+      \ "koehler",
+      \ "murphy",
+      \ "pablo",
+      \ "desert",
+      \ "torte",
+      \ "vibrantink",
+      \ "metacosm",
+      \ "jellybeans",
+      \ "wombat",
+      \ "zenburn",
+      \ ]
+
+
+function! RotateColorTheme()
+    let g:themeindex = (g:themeindex + 1) % len(g:c_schemes)
+    let newtheme = g:c_schemes[g:themeindex]
+    execute ":colorscheme ".newtheme
+endfunction
+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+call pathogen#infect()
+
+
+set fillchars+=stl:\ ,stlnc:\
+set background=dark
+
+try
+  colorscheme inkpot
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme slate
+endtry
+
+
+"set t_Co=256
+"set term=screen-256color
+"
+
+":::::::::::::::::::::::::::::::::::::::autocommands::::::::::::::::::::::::::
+
+if has("autocmd")
+  "jump to the last position when reopening a file
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+  "load indentation rules and plugins according to the detected filetype.
+  filetype plugin indent on
+
+  " Remove any trailing whitespace
+  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+  autocmd CmdwinEnter * :nmap <CR> <CR> | :set norelativenumber
+  autocmd CmdwinLeave * :nmap <CR> @: | :set relativenumber
+  autocmd BufNewFile,BufRead *.json :set ft=json
+
+ " Enable neocomplcache omni completion.
+ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+endif
+
+":::::::::::::::::::::::::::::::::settings::::::::::::::::::::::::::::::::::::
+"
+set clipboard=unnamed
+set cmdheight=4
+set showcmd		" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+"security
+set modelines=0
+set shellcmdflag=-ic
+set scrolloff=5
+set hidden
+set showmode
+set autoindent
+set wildmenu
+set visualbell
+set cursorline
+set ruler
+set laststatus=2
+set history=1000
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+set undolevels=2000
+set ttyfast
+set sw=2
+set softtabstop=2
+set expandtab
+set ls=2
+
+"set autowrite		" Automatically save before commands like :next and :make
+"set hidden             " Hide buffers when they are abandoned
+"set mouse=a		" Enable mouse usage (all modes)
+set colorcolumn=85
+set relativenumber
+set undofile
+
+"let g:clipbrdDefaultReg = '+'
+let undodir = "/home/ckw/undo_dir_vim"
+
+":::::::::::::::::::::::::::::::::::::::mapping:::::::::::::::::::::::::::::::
+let mapleader=" "
+inoremap jk  <ESC>
+
+noremap <F4> :set hlsearch! <CR>
+noremap / /\v
+noremap % v%
+noremap <tab> v%
+noremap <leader>; ,
+noremap <silent> <leader>t :call RotateColorTheme()<CR>
+
+vnoremap <tab> %
+vnoremap / /\v
+nnoremap <leader>g :GundoToggle<CR>
+noremap , "
+noremap ; q:i
+
+"was for lusty-juggler; unnecessary if you change default lj invoker
+"nmap <leader><leader> <leader>lj
+
+map <C-l> $
+map <C-h> 0
+
+nmap <leader>e @
+nmap <leader>h <C-w>h
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
+nmap <leader>l <C-w>l
+nmap <leader>v <C-w>v
+nmap <leader>s <C-w>s
+nmap <leader>q <C-w>q
+nmap <CR> @:
+nmap <C-b> <esc>:buffers<cr>
+nmap n nzz
+nmap N Nzz
+
+nmap j gj
+nmap k gk
+nmap <C-j> 15j
+nmap <C-k> 15k
+
+omap <C-j> 15j
+omap <C-k> 15k
+
+vmap j gj
+vmap k gk
+vmap <C-j> 15j
+vmap <C-k> 15k
+noremap f <esc>:call FindAllChars()<cr>
+
+noremap <leader>w :w<CR>
+
+":::::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::
+let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('charcode', 'before', 'fileformat')
+call Pl#Theme#InsertSegment('color_scheme', 'before', 'fileformat')
 
 ":::::::::::::::::::::::::Gundo::::::::::::::::::::::::::::::::::::::::::::::::
 let g:gundo_help = 0
@@ -48,7 +223,56 @@ let g:gundo_preview_bottom = 1
 let g:gundo_close_on_revert = 1
 let g:gundo_preview_height = 15
 let g:gundo_width = 45
+":::::::::::::::::::::::::Gundo::::::::::::::::::::::::::::::::::::::::::::::::
+"
+":::::::::::::::::::::::::CTRLP::::::::::::::::::::::::::::::::::::::::::::::::
+"Use this option to change the mapping to invoke CtrlP in |Normal| mode: >
+let g:ctrlp_map = '<c-p>'
 
+"Set the default opening command to use when pressing the above mapping: >
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+"Set the maximum height of the match window: >
+let g:ctrlp_max_height = 20
+
+"When opening a file with <cr> or <c-t>, if the file's already opened somewhere
+"CtrlP will try to jump to it instead of opening a new instance: >
+let g:ctrlp_switch_buffer = 1
+
+"When starting up, CtrlP sets its local working directory according to this
+"variable: >
+let g:ctrlp_working_path_mode = 'rc'
+
+
+let g:ctrlp_root_markers = ['.cabal', 'Gemfile', '.git']
+
+"Set this to 0 to enable cross-session caching by not deleting the cache files
+"upon exiting Vim: >
+let g:ctrlp_clear_cache_on_exit = 0
+
+"Set the directory to store the cache files: >
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+
+"The maximum number of files to scan, set to 0 for no limit: >
+  let g:ctrlp_max_files = 10000
+
+"The maximum depth of a directory tree to recurse into: >
+  let g:ctrlp_max_depth = 40
+
+"Use this option to specify how the newly created file is to be opened when
+"pressing <c-y>:
+"  t - in a new tab
+"  h - in a new horizontal split
+"  v - in a new vertical split
+"  r - in the current window
+let g:ctrlp_open_new_file = 'r'
+
+let g:ctrlp_open_multiple_files = 'ri'
+
+"If non-zero, CtrlP will follow symbolic links when listing files: >
+let g:ctrlp_follow_symlinks = 0
+":::::::::::::::::::::::::CTRLP::::::::::::::::::::::::::::::::::::::::::::::::
+"
 ":::::::::::::::::::::::::NEOCOMPL:::::::::::::::::::::::::::::::::::::::::::::
 let g:neocomplcache_enable_at_startup = 1
 " Disable AutoComplPop.
@@ -119,174 +343,5 @@ let g:neocomplcache_enable_at_startup = 1
  let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 
-":::::::::::::::::::::::::Theme Rotating:::::::::::::::::::::::::::::::::::::::
-
-let themeindex = 0
-let c_schemes = ["inkpot",
-      \ "slate",
-      \ "ron",
-      \ "blue",
-      \ "elflord",
-      \ "evening",
-      \ "koehler",
-      \ "murphy",
-      \ "pablo",
-      \ "desert",
-      \ "torte",
-      \ "vibrantink",
-      \ "metacosm",
-      \ "jellybeans",
-      \ "wombat",
-      \ "zenburn",
-      \ ]
-
-
-function! RotateColorTheme()
-    let g:themeindex = (g:themeindex + 1) % len(g:c_schemes)
-    let newtheme = g:c_schemes[g:themeindex]
-    execute ":colorscheme ".newtheme
-endfunction
-"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-call pathogen#infect()
-
-set fillchars+=stl:\ ,stlnc:\
-set background=dark
-
-try
-  colorscheme inkpot
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme slate
-endtry
-
-
-"set t_Co=256
-"set term=screen-256color
-"
-
-":::::::::::::::::::::::::::::::::::::::autocommands::::::::::::::::::::::::::
-
-if has("autocmd")
-  "jump to the last position when reopening a file
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-  "load indentation rules and plugins according to the detected filetype.
-  filetype plugin indent on
-
-  " Remove any trailing whitespace
-  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
-  autocmd CmdwinEnter * :nmap <CR> <CR> | :set norelativenumber
-  autocmd CmdwinLeave * :nmap <CR> @: | :set relativenumber
-  autocmd BufNewFile,BufRead *.json :set ft=json
-
- " Enable neocomplcache omni completion.
- autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
- autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
- autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
- autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
- autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-endif
-
-":::::::::::::::::::::::::::::::::settings::::::::::::::::::::::::::::::::::::
-"
-set cmdheight=4
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-"security
-set modelines=0
-set shellcmdflag=-ic
-set scrolloff=5
-set hidden
-set showmode
-set autoindent
-set wildmenu
-set visualbell
-set cursorline
-set ruler
-set laststatus=2
-set history=1000
-set wrap
-set textwidth=79
-set formatoptions=qrn1
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-set undolevels=2000
-set ttyfast
-set sw=2
-set softtabstop=2
-set expandtab
-set ls=2
-
-"set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
-set colorcolumn=85
-set relativenumber
-set undofile
-
-let g:clipbrdDefaultReg = '+'
-let undodir = "/home/ckw/undo_dir_vim"
-
-":::::::::::::::::::::::::::::::::::::::mapping:::::::::::::::::::::::::::::::
-let mapleader=" "
-inoremap jk  <ESC>
-
-noremap <F4> :set hlsearch! <CR>
-noremap / /\v
-noremap % v%
-noremap <tab> v%
-noremap <leader>; ,
-noremap <silent> <leader>t :call RotateColorTheme()<CR>
-
-vnoremap <tab> %
-vnoremap / /\v
-nnoremap <leader>g :GundoToggle<CR>
-noremap , "
-noremap ; q:i
-
-"was for lusty-juggler; unnecessary if you change default lj invoker
-"nmap <leader><leader> <leader>lj
-
-map <C-l> $
-map <C-h> 0
-
-nmap <leader>e @
-nmap <leader>h <C-w>h
-nmap <leader>j <C-w>j
-nmap <leader>k <C-w>k
-nmap <leader>l <C-w>l
-nmap <leader>v <C-w>v
-nmap <leader>s <C-w>s
-nmap <leader>q <C-w>q
-nmap <CR> @:
-nmap <C-b> <esc>:buffers<cr>
-nmap n nzz
-nmap N Nzz
-
-nmap j gj
-nmap k gk
-nmap <C-j> 15j
-nmap <C-k> 15k
-
-omap <C-j> 15j
-omap <C-k> 15k
-
-vmap j gj
-vmap k gk
-vmap <C-j> 15j
-vmap <C-k> 15k
-noremap f <esc>:call FindAllChars()<cr>
-
-":::::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::
-let g:Powerline_symbols = 'fancy'
-call Pl#Theme#InsertSegment('charcode', 'before', 'fileformat')
-call Pl#Theme#InsertSegment('color_scheme', 'before', 'fileformat')
+":::::::::::::::::::::::::NEOCOMPL:::::::::::::::::::::::::::::::::::::::::::::
 

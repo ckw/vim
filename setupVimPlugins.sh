@@ -16,6 +16,7 @@ git clone git@github.com:ckw/vim-powerline.git
 git clone https://github.com/Lokaltog/vim-easymotion.git
 git clone https://github.com/sjl/gundo.vim.git
 git clone https://github.com/Shougo/neocomplcache
+git clone https://github.com/kien/ctrlp.vim
 
 git clone https://github.com/flazz/vim-colorschemes.git ~/.vim/vim-colorschemes
 ln -s ~/.vim/vim-colorschemes/colors ~/.vim/colors
