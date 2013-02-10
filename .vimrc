@@ -40,7 +40,7 @@ function! FindAllChars()
 endfunction
 
 let g:EasyMotion_leader_key = '<Leader>f'
-let g:EasyMotion_keys = 'asdfjklgheiru;'
+let g:EasyMotion_keys = 'asdfjkl;eirughwptyo'
 "
 ":::::::::::::::::::::::::Theme Rotating:::::::::::::::::::::::::::::::::::::::
 
