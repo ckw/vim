@@ -158,6 +158,9 @@ noremap / /\v
 noremap % v%
 noremap <tab> v%
 noremap <leader>; ,
+noremap <leader>n q:inorm<space>
+noremap <leader>r q:is/
+noremap <leader>R q:i% s/
 noremap <silent> <leader>t :call RotateColorTheme()<CR>
 
 vnoremap <tab> %
