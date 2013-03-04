@@ -129,8 +129,7 @@ set textwidth=79
 set formatoptions=qrn1
 set gdefault
 set incsearch
-set showmatch
-set hlsearch
+"set hlsearch
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set undolevels=2000
 set ttyfast
@@ -143,7 +142,7 @@ set ls=2
 "set hidden             " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 set colorcolumn=85
-set relativenumber
+"set relativenumber
 set undofile
 
 "let g:clipbrdDefaultReg = '+'
