@@ -144,6 +144,7 @@ set ls=2
 set colorcolumn=85
 "set relativenumber
 set undofile
+set lazyredraw
 
 "let g:clipbrdDefaultReg = '+'
 let undodir = "/home/ckw/undo_dir_vim"
@@ -181,7 +182,7 @@ nmap <leader>k <C-w>k
 nmap <leader>l <C-w>l
 nmap <leader>v <C-w>v
 nmap <leader>s <C-w>s
-nmap <leader>q <C-w>q
+noremap <leader>q :q<cr>
 nmap <CR> @:
 nmap <C-b> <esc>:buffers<cr>
 nmap n nzz
