@@ -159,7 +159,9 @@ noremap <silent> <leader>t :call RotateColorTheme()<CR>
 
 vnoremap <tab> %
 vnoremap / /\v
-nnoremap <leader>g :GundoToggle<CR>
+nnoremap <leader>gj :GitGutterNextHunk<CR>
+nnoremap <leader>gk :GitGutterPrevHunk<CR>
+nnoremap <leader>ag :GundoToggle<CR>
 noremap , "
 noremap ; q:i
 
