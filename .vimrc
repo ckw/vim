@@ -165,9 +165,6 @@ nnoremap <leader>ag :GundoToggle<CR>
 noremap , "
 noremap ; q:i
 
-"was for lusty-juggler; unnecessary if you change default lj invoker
-"nmap <leader><leader> <leader>lj
-
 map <C-l> $
 map <C-h> 0
 
