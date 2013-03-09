@@ -111,6 +111,7 @@ set sw=2
 set softtabstop=2
 set expandtab
 set ls=2
+set synmaxcol=2048      " Syntax coloring too-long lines is slow
 
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
