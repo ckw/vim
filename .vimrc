@@ -7,48 +7,6 @@ endif
 
 set encoding=utf-8
 
-function! CmdLine(str)
-  exe "menu Foo.Bar :" . a:str
-  emenu Foo.Bar
-  unmenu Foo
-endfunction
-
-function! VisualSelection(direction) range
-  let l:saved_reg = @"
-  execute "normal! vgvy"
-
-  let l:pattern = escape(@", '\\/.*$^~[]')
-  let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-  if a:direction == 'b'
-    execute "normal ?" . l:pattern . "^M"
-  elseif a:direction == 'gv'
-    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-  elseif a:direction == 'replace'
-    call CmdLine("%s" . '/'. l:pattern . '/')
-  elseif a:direction == 'f'
-    execute "normal /" . l:pattern . "^M"
-  endif
-
-  let @/ = l:pattern
-  let @" = l:saved_reg
-endfunction
-
-function! ShowColourSchemeName()
-  try
-    return g:colors_name
-  catch /^Vim:E121/
-    return "default"
-  endtry
-endfunction
-
-function! FindAllChars()
-  set scrolloff=0
-  call setpos('.',[0,line('w0'),0,0])
-  call EasyMotion#F('f',0)
-  set scrolloff=5
-endfunction
-
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjkl;eirughwptyo'
 "
@@ -74,11 +32,6 @@ let c_schemes = ["inkpot",
       \ ]
 
 
-function! RotateColorTheme()
-  let g:themeindex = (g:themeindex + 1) % len(g:c_schemes)
-  let newtheme = g:c_schemes[g:themeindex]
-  execute ":colorscheme ".newtheme
-endfunction
 "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
@@ -396,4 +349,52 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 
 ":::::::::::::::::::::::::NEOCOMPL:::::::::::::::::::::::::::::::::::::::::::::
+":::::::::::::::::::::::::helper functions:::::::::::::::::::::::::::::::::::::
+function! CmdLine(str)
+  exe "menu Foo.Bar :" . a:str
+  emenu Foo.Bar
+  unmenu Foo
+endfunction
+
+function! VisualSelection(direction) range
+  let l:saved_reg = @"
+  execute "normal! vgvy"
+
+  let l:pattern = escape(@", '\\/.*$^~[]')
+  let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+  if a:direction == 'b'
+    execute "normal ?" . l:pattern . "^M"
+  elseif a:direction == 'gv'
+    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+  elseif a:direction == 'replace'
+    call CmdLine("%s" . '/'. l:pattern . '/')
+  elseif a:direction == 'f'
+    execute "normal /" . l:pattern . "^M"
+  endif
+
+  let @/ = l:pattern
+  let @" = l:saved_reg
+endfunction
+
+function! ShowColourSchemeName()
+  try
+    return g:colors_name
+  catch /^Vim:E121/
+    return "default"
+  endtry
+endfunction
+
+function! FindAllChars()
+  set scrolloff=0
+  call setpos('.',[0,line('w0'),0,0])
+  call EasyMotion#F('f',0)
+  set scrolloff=5
+endfunction
+
+function! RotateColorTheme()
+  let g:themeindex = (g:themeindex + 1) % len(g:c_schemes)
+  let newtheme = g:c_schemes[g:themeindex]
+  execute ":colorscheme ".newtheme
+endfunction
 
