@@ -150,6 +150,7 @@ noremap ; q:i
 map <C-l> $
 map <C-h> 0
 
+noremap <leader>dd <C-^>
 nmap <leader>e @
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
