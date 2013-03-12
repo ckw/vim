@@ -64,8 +64,8 @@ if has("autocmd")
   " Remove any trailing whitespace
   autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-  autocmd CmdwinEnter * :nmap <CR> <CR> | :set norelativenumber
-  autocmd CmdwinLeave * :nmap <CR> @: | :set relativenumber
+  autocmd CmdwinEnter * :nmap <CR> <CR> | inoremap <leader>dq <esc>o<cr>
+  autocmd CmdwinLeave * :nmap <CR> @: | iunmap <leader>dq
   autocmd BufNewFile,BufRead *.json :set ft=json
 
   " Enable neocomplcache omni completion.
@@ -151,7 +151,6 @@ map <C-l> $
 map <C-h> 0
 
 noremap <leader>dd <C-^>
-inoremap <leader>dq :q<cr>
 nmap <leader>e @
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
