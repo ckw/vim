@@ -151,6 +151,7 @@ map <C-l> $
 map <C-h> 0
 
 noremap <leader>dd <C-^>
+inoremap <leader>dq :q<cr>
 nmap <leader>e @
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
