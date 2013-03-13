@@ -146,6 +146,9 @@ nnoremap <leader>gk :GitGutterPrevHunk<CR>
 nnoremap <leader>ag :GundoToggle<CR>
 noremap , "
 noremap ; q:i
+nnoremap / q/i\v
+nnoremap ? q?i
+
 
 map <C-l> $
 map <C-h> 0
