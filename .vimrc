@@ -95,6 +95,7 @@ set autoindent
 set wildmenu
 set visualbell
 set cursorline
+hi CursorLine term=none cterm=none ctermbg=4
 set ruler
 set laststatus=2
 set history=1000
@@ -409,5 +410,6 @@ function! RotateColorTheme()
   let g:themeindex = (g:themeindex + 1) % len(g:c_schemes)
   let newtheme = g:c_schemes[g:themeindex]
   execute ":colorscheme ".newtheme
+  hi CursorLine term=none cterm=none ctermbg=4
 endfunction
 
