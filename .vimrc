@@ -120,6 +120,7 @@ set colorcolumn=85
 "set relativenumber
 set undofile
 set lazyredraw
+set noswapfile
 
 "let g:clipbrdDefaultReg = '+'
 let undodir = "/home/ckw/undo_dir_vim"
