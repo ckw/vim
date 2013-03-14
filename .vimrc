@@ -133,6 +133,7 @@ inoremap jk  <ESC>
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
 nnoremap <silent> zjk O<Esc>jo<Esc>k
+nnoremap <leader>p ]p
 
 
 noremap <F4> :set hlsearch! <CR>
