@@ -132,6 +132,8 @@ inoremap jk  <ESC>
 " Create Blank Newlines and stay in Normal mode, in same place
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
+nnoremap <silent> zjk O<Esc>jo<Esc>k
+
 
 noremap <F4> :set hlsearch! <CR>
 noremap / /\v
