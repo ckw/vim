@@ -129,6 +129,10 @@ let undodir = "/home/ckw/undo_dir_vim"
 let mapleader=" "
 inoremap jk  <ESC>
 
+" Create Blank Newlines and stay in Normal mode, in same place
+nnoremap <silent> zj o<Esc>k
+nnoremap <silent> zk O<Esc>j
+
 noremap <F4> :set hlsearch! <CR>
 noremap / /\v
 noremap % v%
