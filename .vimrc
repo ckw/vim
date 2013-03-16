@@ -136,6 +136,10 @@ nnoremap <silent> zk O<Esc>j
 nnoremap <silent> zjk O<Esc>jo<Esc>k
 nnoremap <leader>p ]p
 
+" Pull word under cursor into LHS of a substitute (for quick search and
+" " replace)
+nnoremap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
+
 
 noremap <F4> :set hlsearch! <CR>
 noremap / /\v
