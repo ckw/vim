@@ -167,6 +167,7 @@ map <C-l> $
 map <C-h> 0
 
 noremap <leader>dd <C-^>
+noremap <leader>da q:inorm ==j0<cr>
 nmap <leader>e @
 nmap <leader>h <C-w>h
 nmap <leader>j <C-w>j
