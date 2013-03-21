@@ -168,7 +168,7 @@ map <C-h> 0
 
 noremap <leader>dd <C-^>
 noremap <leader>da q:inorm ==j0<cr>
-noremap <leader>dr :call ToggleRelativeNumber()<cr>
+noremap <leader>dr :set relativenumber! relativenumber?<cr>
 
 nmap <leader>e @
 nmap <leader>h <C-w>h
@@ -418,15 +418,4 @@ function! RotateColorTheme()
   let newtheme = g:c_schemes[g:themeindex]
   execute ":colorscheme ".newtheme
   hi CursorLine term=none cterm=none ctermbg=4
-endfunction
-
-let g:relnumset = 0
-function! ToggleRelativeNumber()
-  if g:relnumset
-    set norelativenumber
-    let g:relnumset = 0
-  else
-    set relativenumber
-    let g:relnumset = 1
-  end
 endfunction
