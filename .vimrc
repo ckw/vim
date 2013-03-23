@@ -7,6 +7,8 @@ endif
 
 set encoding=utf-8
 
+let g:yankring_replace_n_pkey = '<leader>dn'
+let g:yankring_replace_n_pkey = '<leader>dp'
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjkl;eirughwptyo'
 "
