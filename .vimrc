@@ -7,8 +7,6 @@ endif
 
 set encoding=utf-8
 
-let g:yankring_replace_n_pkey = '<leader>dn'
-let g:yankring_replace_n_pkey = '<leader>dp'
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjkl;eirughwptyo'
 "
@@ -38,7 +36,6 @@ let c_schemes = ["inkpot",
 
 
 call pathogen#infect()
-
 
 set fillchars+=stl:\ ,stlnc:\
 set background=dark
@@ -168,6 +165,8 @@ nnoremap ? q?i
 
 map <C-l> $
 map <C-h> 0
+map <left> <esc>:bp<cr>
+map <right> <esc>:bn<cr>
 
 noremap <leader>dd <C-^>
 noremap <leader>da q:inorm ==j0<cr>
