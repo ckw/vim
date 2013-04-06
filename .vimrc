@@ -9,7 +9,7 @@ set encoding=utf-8
 
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjkl;eirughwptyo'
-"
+
 ":::::::::::::::::::::::::Theme Rotating:::::::::::::::::::::::::::::::::::::::
 
 let themeindex = 0
@@ -47,7 +47,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 
 
-"set t_Co=256
+set t_Co=256
 "set term=screen-256color
 "
 
@@ -63,8 +63,8 @@ if has("autocmd")
   " Remove any trailing whitespace
   autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-  autocmd CmdwinEnter * :nnoremap <CR> <CR> | inoremap <leader>dq <esc>o<cr>
-  autocmd CmdwinLeave * :nnoremap <CR> @: | iunmap <leader>dq
+  autocmd CmdwinEnter * :nnoremap <CR> <CR>
+  autocmd CmdwinLeave * :nnoremap <CR> @:
   autocmd BufNewFile,BufRead *.json :set ft=json
 
   " Enable neocomplcache omni completion.
@@ -86,7 +86,7 @@ set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 "security
 set modelines=0
-set shellcmdflag=-ic
+"set shellcmdflag=-ic this makes vim bg itself all the time
 set scrolloff=5
 set hidden
 set showmode
