@@ -63,8 +63,8 @@ if has("autocmd")
   " Remove any trailing whitespace
   autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-  autocmd CmdwinEnter * :nmap <CR> <CR> | inoremap <leader>dq <esc>o<cr>
-  autocmd CmdwinLeave * :nmap <CR> @: | iunmap <leader>dq
+  autocmd CmdwinEnter * :nnoremap <CR> <CR> | inoremap <leader>dq <esc>o<cr>
+  autocmd CmdwinLeave * :nnoremap <CR> @: | iunmap <leader>dq
   autocmd BufNewFile,BufRead *.json :set ft=json
 
   " Enable neocomplcache omni completion.
@@ -163,43 +163,43 @@ nnoremap / q/i\v
 nnoremap ? q?i
 
 
-map <C-l> $
-map <C-h> 0
-map <left> <esc>:bp<cr>
-map <right> <esc>:bn<cr>
+nnoremap <C-l> $
+nnoremap <C-h> 0
+nnoremap <left> <esc>:bp<cr>
+nnoremap <right> <esc>:bn<cr>
 
 noremap <leader>dd <C-^>
 noremap <leader>da q:inorm ==j0<cr>
 noremap <leader>dr :set relativenumber! relativenumber?<cr>
 
-nmap <leader>e @
-nmap <leader>h <C-w>h
-nmap <leader>j <C-w>j
-nmap <leader>k <C-w>k
-nmap <leader>l <C-w>l
-nmap <leader>v <C-w>v
-nmap <leader>s <C-w>s
-noremap <leader>q :q<cr>
-nmap <CR> @:
-nmap <C-b> <esc>:buffers<cr>
-nmap n nzz
-nmap N Nzz
+nnoremap <leader>e @
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>v <C-w>v
+nnoremap <leader>s <C-w>s
+nnoremap <leader>q :q<cr>
+nnoremap <CR> @:
+nnoremap <C-b> <esc>:buffers<cr>
+nnoremap n nzz
+nnoremap N Nzz
 
-nmap j gj
-nmap k gk
-nmap <C-j> 15j
-nmap <C-k> 15k
+nnoremap j gj
+nnoremap k gk
+nnoremap <C-j> 15j
+nnoremap <C-k> 15k
 
-omap <C-j> 15j
-omap <C-k> 15k
+onoremap <C-j> 15j
+onoremap <C-k> 15k
 
-vmap j gj
-vmap k gk
-vmap <C-j> 15j
-vmap <C-k> 15k
-noremap f <esc>:call FindAllChars()<cr>
+vnoremap j gj
+vnoremap k gk
+vnoremap <C-j> 15j
+vnoremap <C-k> 15k
+nnoremap f <esc>:call FindAllChars()<cr>
 
-noremap <leader>w :w<CR>
+nnoremap <leader>w :w<CR>
 
 ":::::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::
 let g:Powerline_symbols = 'fancy'
