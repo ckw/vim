@@ -203,8 +203,7 @@ nnoremap <leader>w :w<CR>
 
 ":::::::::::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::::::::::::
 let g:Powerline_symbols = 'fancy'
-call Pl#Theme#InsertSegment('charcode', 'before', 'fileformat')
-call Pl#Theme#InsertSegment('color_scheme', 'before', 'fileformat')
+"call Pl#Theme#InsertSegment('color_scheme', 'before', 'fileformat')
 
 ":::::::::::::::::::::::::Gundo::::::::::::::::::::::::::::::::::::::::::::::::
 let g:gundo_help = 0
