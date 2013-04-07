@@ -74,6 +74,9 @@ if has("autocmd")
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+  autocmd FileType ruby nnoremap <leader>c I#<esc>
+  autocmd FileType haskell nnoremap <leader>c I--<esc>
+
 endif
 
 ":::::::::::::::::::::::::::::::::settings::::::::::::::::::::::::::::::::::::
