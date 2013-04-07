@@ -167,8 +167,9 @@ nnoremap / q/i\v
 nnoremap ? q?i
 
 
-nnoremap <C-l> $
-nnoremap <C-h> 0
+noremap L $
+noremap H 0
+
 nnoremap <left> <esc>:bp<cr>
 nnoremap <right> <esc>:bn<cr>
 
