@@ -142,16 +142,17 @@ nnoremap <leader>p ]p
 " " replace)
 nnoremap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 
-
 noremap <F4> :set hlsearch! <CR>
-noremap / /\v
-noremap % v%
-noremap <tab> v%
-noremap <leader>; ,
-noremap <leader>n q:inorm<space>
-noremap <leader>r q:is/
-noremap <leader>R q:i% s/
-noremap <silent> <leader>t :call RotateColorTheme()<CR>
+nnoremap / /\v
+nnoremap % v%
+nnoremap <tab> v%
+nnoremap <leader>; ,
+nnoremap <leader>n q:inorm<space>
+nnoremap <leader>r q:is/
+nnoremap <leader>R q:i% s/
+nnoremap <silent> <leader>t :call RotateColorTheme()<CR>
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 vnoremap <tab> %
 vnoremap / /\v
