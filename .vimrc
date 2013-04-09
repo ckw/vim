@@ -54,29 +54,31 @@ set t_Co=256
 ":::::::::::::::::::::::::::::::::::::::autocommands::::::::::::::::::::::::::
 
 if has("autocmd")
-  "jump to the last position when reopening a file
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  augroup augs
+    autocmd!
+    "jump to the last position when reopening a file
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-  "load indentation rules and plugins according to the detected filetype.
-  filetype plugin indent on
+    "load indentation rules and plugins according to the detected filetype.
+    filetype plugin indent on
 
-  " Remove any trailing whitespace
-  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+    " Remove any trailing whitespace
+    autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
-  autocmd CmdwinEnter * :nnoremap <CR> <CR>
-  autocmd CmdwinLeave * :nnoremap <CR> @:
-  autocmd BufNewFile,BufRead *.json :set ft=json
+    autocmd CmdwinEnter * :nnoremap <CR> <CR>
+    autocmd CmdwinLeave * :nnoremap <CR> @:
+    autocmd BufNewFile,BufRead *.json :set ft=json
 
-  " Enable neocomplcache omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    " Enable neocomplcache omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-  autocmd FileType ruby nnoremap <leader>c I#<esc>
-  autocmd FileType haskell nnoremap <leader>c I--<esc>
-
+    autocmd FileType ruby nnoremap <leader>c I#<esc>
+    autocmd FileType haskell nnoremap <leader>c I--<esc>
+  augroup END
 endif
 
 ":::::::::::::::::::::::::::::::::settings::::::::::::::::::::::::::::::::::::
