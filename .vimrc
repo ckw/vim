@@ -9,6 +9,7 @@ set encoding=utf-8
 
 let g:EasyMotion_leader_key = '<Leader>f'
 let g:EasyMotion_keys = 'asdfjkl;eirughwptyo'
+let g:LustyJugglerDefaultMappings = 1
 
 ":::::::::::::::::::::::::Theme Rotating:::::::::::::::::::::::::::::::::::::::
 
