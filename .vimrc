@@ -172,6 +172,8 @@ nnoremap ? q?i
 
 noremap L $
 noremap H 0
+onoremap L $
+onoremap H 0
 
 nnoremap <left> <esc>:bp<cr>
 nnoremap <right> <esc>:bn<cr>
