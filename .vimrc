@@ -90,9 +90,7 @@ set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
-"security
 set modelines=0
-"set shellcmdflag=-ic this makes vim bg itself all the time
 set scrolloff=5
 set hidden
 set showmode
