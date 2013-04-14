@@ -117,16 +117,13 @@ set expandtab
 set ls=2
 set synmaxcol=2048      " Syntax coloring too-long lines is slow
 
-"set autowrite		" Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
 set colorcolumn=85
 "set relativenumber
 set undofile
 set lazyredraw
 set noswapfile
 
-"let g:clipbrdDefaultReg = '+'
 let undodir = "/home/ckw/undo_dir_vim"
 
 ":::::::::::::::::::::::::::::::::::::::mapping:::::::::::::::::::::::::::::::
