@@ -165,6 +165,8 @@ nnoremap / q/i\v
 nnoremap ? q?i
 
 
+nnoremap <leader>a :Ack<Space><c-r><c-W><CR>
+
 noremap L $
 noremap H 0
 onoremap L $
