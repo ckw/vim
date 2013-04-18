@@ -68,6 +68,7 @@ if has("autocmd")
 
     autocmd CmdwinEnter * :nnoremap <CR> <CR>
     autocmd CmdwinLeave * :nnoremap <CR> @:
+    autocmd BufWinEnter quickfix nnoremap <buffer> <cr> :.cc<cr>:wincmd p<cr>
     autocmd BufNewFile,BufRead *.json :set ft=json
 
     " Enable neocomplcache omni completion.
