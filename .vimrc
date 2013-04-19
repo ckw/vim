@@ -158,7 +158,7 @@ vnoremap / /\v
 vnoremap <silent> <leader>r :call VisualSelection('replace')<CR>
 nnoremap <leader>gj :GitGutterNextHunk<CR>
 nnoremap <leader>gk :GitGutterPrevHunk<CR>
-nnoremap <leader>ag :GundoToggle<CR>
+nnoremap <leader>dg :GundoToggle<CR>
 nnoremap <leader>y :YRShow<CR>
 noremap , "
 noremap ; q:i
